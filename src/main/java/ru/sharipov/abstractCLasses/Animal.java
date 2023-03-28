@@ -5,13 +5,25 @@ import ru.sharipov.classes.Wall;
 
 public abstract class Animal {
     private String nickName;
+    private Integer jumpingSkill;
+    private Integer physicalSkill;
 
-    public Animal(String nickName){
+    public Animal(String nickName, Integer jumpingSkill, Integer physicalSkill){
         this.nickName = nickName;
+        this.jumpingSkill = jumpingSkill;
+        this.physicalSkill = physicalSkill;
     }
 
     public String getNickName(){
         return nickName;
+    }
+
+    public Integer getJumpingSkill() {
+        return jumpingSkill;
+    }
+
+    public Integer getPhysicalSkill() {
+        return physicalSkill;
     }
 
     public abstract void run();

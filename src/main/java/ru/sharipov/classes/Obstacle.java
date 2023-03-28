@@ -2,7 +2,7 @@ package ru.sharipov.classes;
 
 public class Obstacle {
 
-    public static void obstacleСourse(Object[] participants, Object[] obstacles) {
+    public static void obstacleCourse(Object[] participants, Object[] obstacles) {
         for (Object participant: participants){
             boolean wallCheck = false;
             boolean trackCheck = false;
@@ -49,7 +49,7 @@ public class Obstacle {
         }
         if (participant instanceof Cat
                 && obstacle instanceof Wall
-                && ((Wall) obstacle).getHeight() < 3){
+                && ((Wall) obstacle).getHeight() <= ((Cat) participant).getJumpingSkill()){
             return true;
         }
         else {
@@ -73,7 +73,7 @@ public class Obstacle {
         }
         if (participant instanceof Cat
                 && obstacle instanceof Track
-                && ((Track) obstacle).getDistance() < 1){
+                && ((Track) obstacle).getDistance() <= ((Cat) participant).getPhysicalSkill()){
             return true;
         }
         else {

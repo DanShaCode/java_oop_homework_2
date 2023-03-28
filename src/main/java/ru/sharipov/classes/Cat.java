@@ -3,8 +3,8 @@ package ru.sharipov.classes;
 import ru.sharipov.abstractCLasses.Animal;
 
 public class Cat extends Animal {
-    public Cat(String nickName) {
-        super(nickName);
+    public Cat(String nickName, Integer jumpingSkill, Integer physicalSkill) {
+        super(nickName, jumpingSkill, physicalSkill);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class Cat extends Animal {
 
     @Override
     public void run(Track track) {
-        if (track.getDistance() > 1){
+        if (track.getDistance() > getPhysicalSkill()){
             System.out.println();
             System.out.println("I am to lazy ... maybe go to sleep ?!");
         } else {
@@ -39,7 +39,7 @@ public class Cat extends Animal {
 
     @Override
     public void jump(Wall wall) {
-        if(wall.getHeight() >= 3){
+        if(wall.getHeight() > getJumpingSkill()){
             System.out.println();
             System.out.println(getNickName() +  " can't jump through the wall but gut tells me that there is a hole here ... ");
         } else {

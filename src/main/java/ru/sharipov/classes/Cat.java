@@ -8,6 +8,13 @@ public class Cat extends Animal {
     }
 
     @Override
+    public String toString(){
+        System.out.println();
+        return getNickName();
+    }
+
+
+    @Override
     public void run() {
         System.out.println();
         System.out.println(getNickName() + " is getting ready to run ... ");
@@ -32,8 +39,15 @@ public class Cat extends Animal {
 
     @Override
     public void jump(Wall wall) {
-        System.out.println();
-        System.out.println(getNickName() +  " can't jump through the wall but gut tells me that there is a hole here ... ");
+        if(wall.getHeight() >= 3){
+            System.out.println();
+            System.out.println(getNickName() +  " can't jump through the wall but gut tells me that there is a hole here ... ");
+        } else {
+            System.out.println();
+            System.out.println(getNickName() +  " jump over the wall softly ... ");
+        }
+
+
     }
 
 }

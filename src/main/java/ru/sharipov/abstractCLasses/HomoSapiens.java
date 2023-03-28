@@ -7,9 +7,23 @@ public abstract class HomoSapiens {
     private String name;
     private Integer age;
 
-    public HomoSapiens(String name, Integer age){
+    private Integer jumpingSkill;
+
+    private Integer physycalSkill;
+
+    public HomoSapiens(String name, Integer age, Integer jumpingSkill, Integer physycalSkill){
         this.name = name;
         this.age = age;
+        this.jumpingSkill = jumpingSkill;
+        this.physycalSkill = physycalSkill;
+    }
+
+    public Integer getJumpingSkill() {
+        return jumpingSkill;
+    }
+
+    public Integer getPhysycalSkill() {
+        return physycalSkill;
     }
 
     public String getName() {

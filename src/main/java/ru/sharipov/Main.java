@@ -23,28 +23,6 @@ import ru.sharipov.classes.*;
 
 public class Main {
 
-    private static boolean wallPass(Object participant, Object obstacle){
-        if (participant instanceof Human
-                && obstacle instanceof Wall
-                && ((Wall) obstacle).getHeight() < 2){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private static boolean trackPass(Object participant, Object obstacle){
-        if (participant instanceof Human
-                && obstacle instanceof Track
-                && ((Track) obstacle).getDistance() < 5){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
-
     public static void main(String[] args) {
 
         System.out.println();
@@ -54,15 +32,15 @@ public class Main {
         Animal cat = new Cat("Felix");
         cat.jump();
 
-        AutomaticDevice robot = new Robot("Apple", "XR");
+        AutomaticDevice robot = new Robot("Apple", "XR", 100);
         robot.run();
 
-        HomoSapiens man = new Human("Danis", 32);
+        HomoSapiens man = new Human("Danis", 32, 2, 43);
         man.jump();
 
-        Wall wall = new Wall(1);
+        Wall wall = new Wall(50);
 
-        Track track = new Track(1);
+        Track track = new Track(51);
 
         System.out.println();
         System.out.println("        Actions with the WALL");
@@ -104,28 +82,14 @@ public class Main {
         System.out.println("          Obstacle course");
         System.out.println("-------------------------------------");
 
-        Object[] participants = {man};
+        Object[] participants = {man, robot, cat};
 
         Object[] obstacles = {wall,track};
 
-        for (Object participant: participants){
-            boolean wallCheck = false;
-            boolean trackCheck = false;
-            for (Object obstacle: obstacles){
-                if (obstacle instanceof Wall){
-                    wallCheck = wallPass(participant,obstacle);
-                }
-                if (obstacle instanceof Track){
-                    trackCheck = trackPass(participant, obstacle);
-                }
-            }
-            if (wallCheck == true && trackCheck == true){
-                System.out.println("Yes! Track is done!");
-            } else {
-                System.out.println("No! Track is not done!");
-            }
-        }
+        Obstacle.obstacleСourse(participants, obstacles);
 
+        System.out.println(robot.getBatteryCapacity());
 
     }
+
 }

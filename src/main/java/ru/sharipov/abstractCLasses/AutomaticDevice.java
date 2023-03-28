@@ -7,9 +7,20 @@ public abstract class AutomaticDevice {
     private String name;
     private String model;
 
-    public AutomaticDevice(String name, String model){
+    private double batteryCapacity;
+
+    public AutomaticDevice(String name, String model, double batteryCapacity){
         this.name = name;
         this.model = model;
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    public double getBatteryCapacity() {
+        return batteryCapacity;
+    }
+
+    public void setBatteryCapacity(double batteryCapacity) {
+        this.batteryCapacity = batteryCapacity;
     }
 
     public String getName() {
